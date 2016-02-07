@@ -12,11 +12,11 @@
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   background: #fcfcfc;
   border: 1px solid #ccc;
-  border-radius: 3px;
+  border-radius: 2px;
   color: #111;
   font-size: 13px;
   /*font-style: italic;*/
-  line-height: 1.5;
+  line-height: 1.7;
 }
 
 .wikiPreviewPopup.visible {
@@ -24,7 +24,8 @@
 }
 
 .wikiPreviewPopup__title {
-  margin-bottom: 2px;
+  margin-bottom: 3px;
+  font-family: "Linux Libertine",Georgia,Times,serif;
   font-weight: bold;
   font-size: 14px;
 }
