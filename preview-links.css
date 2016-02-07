@@ -3,12 +3,12 @@
   border-bottom: 1px dotted #0645ad;
 }
 
-.wiki-preview-popup {
+.wikiPreviewPopup {
   display: none;
   position: absolute;
   max-width: 480px;
   margin-top: 1em;
-  padding: 10px;
+  padding: 1em;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   background: #fcfcfc;
   border: 1px solid #ccc;
@@ -19,6 +19,12 @@
   line-height: 1.5;
 }
 
-.wiki-preview-popup.visible {
+.wikiPreviewPopup.visible {
   display: block;
+}
+
+.wikiPreviewPopup__title {
+  margin-bottom: 2px;
+  font-weight: bold;
+  font-size: 14px;
 }

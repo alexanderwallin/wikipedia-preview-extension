@@ -1,18 +1,26 @@
 
-var $links = $('#bodyContent a[href^="/wiki"]');
-
-var $popup = $('<div />', {
-  class: 'wiki-preview-popup'
+var $links = $('#bodyContent a[href^="/wiki"]').each(function(i, el) {
+  var $el = $(el);
+  var title = $el.attr('title');
+  $el.attr('data-wiki-preview-title', title);
+  $el.attr('title', null);
 });
 
+var $popup = $('<div />', {
+  class: 'wikiPreviewPopup'
+});
+var $popupTitle = $('<div />', { class: 'wikiPreviewPopup__title' });
+var $popupSummary = $('<div />', { class: 'wikiPreviewPopup__summary' });
+$popup.append($popupTitle).append($popupSummary);
 $popup.appendTo($('body'));
 
 $links.on('mouseover', function() {
   var $link = $(this);
   var url = $(this).attr('href');
 
-  $popup.html(' ')
-    .css({
+  populatePopup();
+
+  $popup.css({
       top: $link.offset().top + $link.outerHeight(),
       left: $link.offset().left
     })
@@ -21,10 +29,9 @@ $links.on('mouseover', function() {
   $.get({
     url: url,
     success: function(results) {
-      var $results = $(results);
-      var $description = $results.find('#mw-content-text p:first');
-
-      $popup.html($description.text());
+      var title = $link.attr('data-wiki-preview-title');
+      var summary = $(results).find('#mw-content-text p:first').text();
+      populatePopup(title, summary);
     },
     error: function(err) {
       console.log(err);
@@ -35,3 +42,9 @@ $links.on('mouseover', function() {
 $links.on('mouseout', function() {
   $popup.removeClass('visible');
 });
+
+function populatePopup(title, summary) {
+  console.log(title, summary);
+  $popupTitle.html(title || '');
+  $popupSummary.html(summary || '');
+}
