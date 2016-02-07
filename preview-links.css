@@ -1,0 +1,24 @@
+
+#bodyContent a[href^="/wiki"] {
+  border-bottom: 1px dotted #0645ad;
+}
+
+.wiki-preview-popup {
+  display: none;
+  position: absolute;
+  max-width: 480px;
+  margin-top: 1em;
+  padding: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  background: #fcfcfc;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  color: #111;
+  font-size: 13px;
+  /*font-style: italic;*/
+  line-height: 1.5;
+}
+
+.wiki-preview-popup.visible {
+  display: block;
+}
