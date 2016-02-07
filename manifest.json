@@ -1,6 +1,6 @@
 {
-  "name": "WikiPedia Previews",
-  "description": "Previews articles",
+  "name": "Wikipedia Previews",
+  "description": "Displays an article preview when hovering a link to another Wikipedia article",
   "version": "0.1",
   "permissions": [
     "background"
